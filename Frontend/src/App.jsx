@@ -1,16 +1,17 @@
-import Header from "./Header";
-import Menu from "./Menu";
-import DashBord from "./DashBord";
-import Footer from "./Footer";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Main from "./Component/Main";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 function App() {
   return (
-    <div className="wrapper">
-      <h1>AppJs</h1>
-      <Header />
-      <Menu />
-      <DashBord />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path="/" element={<Landing />} /> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashbord" element={<Main />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
