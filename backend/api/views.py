@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate
 from rest_framework.permissions import AllowAny
 from .models import CustomUser
 from .serializers import UserSerializer, LoginSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from .serializers import UserSerializer, LoginSerializer, MyTokenObtainPairSerializer
 
 class SignupView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
@@ -25,3 +27,7 @@ class LoginView(generics.GenericAPIView):
             return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
         else:
             return Response({"message": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
