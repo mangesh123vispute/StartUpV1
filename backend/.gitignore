@@ -1,0 +1,5 @@
+myenv/
+.env
+api/__pycache__/
+api/migrations/__pycache__/
+backend/__pycache__/
